@@ -1,0 +1,186 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ApplicationSettings": {
+                    "description": "The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.",
+                    "properties": {
+                        "Enabled": {
+                            "description": "Enables or disables persistent application settings for users during their streaming sessions. ",
+                            "type": "boolean"
+                        },
+                        "SettingsGroup": {
+                            "description": "The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. ",
+                            "maxLength": 100,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Enabled"
+                    ],
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "The description to display.",
+                    "maxLength": 256,
+                    "type": "string"
+                },
+                "DisplayName": {
+                    "description": "The stack name to display.",
+                    "maxLength": 100,
+                    "type": "string"
+                },
+                "FeedbackURL": {
+                    "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.",
+                    "maxLength": 1000,
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the stack.",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+                    "type": "string"
+                },
+                "RedirectURL": {
+                    "description": "The URL that users are redirected to after their streaming session ends.",
+                    "maxLength": 1000,
+                    "type": "string"
+                },
+                "StorageConnectors": {
+                    "description": "The storage connectors to enable.",
+                    "items": {
+                        "description": "Describes a connector to enable persistent storage for users.",
+                        "properties": {
+                            "ConnectorType": {
+                                "description": "The type of storage connector.",
+                                "enum": [
+                                    "HOMEFOLDERS",
+                                    "GOOGLE_DRIVE",
+                                    "ONE_DRIVE"
+                                ],
+                                "type": "string"
+                            },
+                            "Domains": {
+                                "description": "The names of the domains for the account.",
+                                "items": {
+                                    "description": "GSuite domain for GDrive integration.",
+                                    "maxLength": 64,
+                                    "type": "string"
+                                },
+                                "maxItems": 10,
+                                "type": "array"
+                            },
+                            "ResourceIdentifier": {
+                                "description": "The ARN of the storage connector.",
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "ConnectorType"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Tags": {
+                    "description": "<p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^(^(?!aws:).[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            },
+                            "value": {
+                                "maxLength": 256,
+                                "minLength": 0,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 50,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "UserSettings": {
+                    "description": "The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. ",
+                    "items": {
+                        "description": "Describes an action and whether the action is enabled or disabled for users during their streaming sessions.",
+                        "properties": {
+                            "Action": {
+                                "description": "The action that is enabled or disabled.",
+                                "enum": [
+                                    "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+                                    "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+                                    "FILE_UPLOAD",
+                                    "FILE_DOWNLOAD",
+                                    "PRINTING_TO_LOCAL_DEVICE"
+                                ],
+                                "type": "string"
+                            },
+                            "Permission": {
+                                "description": "Indicates whether the action is enabled or disabled.",
+                                "enum": [
+                                    "ENABLED",
+                                    "DISABLED"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Action",
+                            "Permission"
+                        ],
+                        "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

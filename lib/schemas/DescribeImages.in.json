@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Arns": {
+                    "description": "The ARNs of the public, private, and shared images to describe.",
+                    "items": {
+                        "pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum size of each page of results.",
+                    "maximum": 25,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "Names": {
+                    "description": "The names of the public or private images to describe.",
+                    "items": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "NextToken": {
+                    "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "The type of image (public, private, or shared) to describe. ",
+                    "enum": [
+                        "PUBLIC",
+                        "PRIVATE",
+                        "SHARED"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "MaxResults": {
+                    "description": "The maximum size of each page of results.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "Name": {
+                    "description": "The name of the private image for which to describe permissions. The image must be one that you own. ",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+                    "type": "string"
+                },
+                "NextToken": {
+                    "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "SharedAwsAccountIds": {
+                    "description": "The 12-digit identifier of one or more AWS accounts with which the image is shared.",
+                    "items": {
+                        "pattern": "^\\d+$",
+                        "type": "string"
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

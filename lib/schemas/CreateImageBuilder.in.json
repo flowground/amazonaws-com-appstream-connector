@@ -1,0 +1,151 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AppstreamAgentVersion": {
+                    "description": "The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. ",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "The description to display.",
+                    "maxLength": 256,
+                    "type": "string"
+                },
+                "DisplayName": {
+                    "description": "The image builder name to display.",
+                    "maxLength": 100,
+                    "type": "string"
+                },
+                "DomainJoinInfo": {
+                    "description": "The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. ",
+                    "properties": {
+                        "DirectoryName": {
+                            "description": "The fully qualified name of the directory (for example, corp.example.com).",
+                            "type": "string"
+                        },
+                        "OrganizationalUnitDistinguishedName": {
+                            "description": "The distinguished name of the organizational unit for computer accounts.",
+                            "maxLength": 2000,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EnableDefaultInternetAccess": {
+                    "description": "Enables or disables default internet access for the image builder.",
+                    "type": "boolean"
+                },
+                "ImageArn": {
+                    "description": "The ARN of the public, private, or shared image to use.",
+                    "pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+                    "type": "string"
+                },
+                "ImageName": {
+                    "description": "The name of the image used to create the image builder.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "InstanceType": {
+                    "description": "The instance type to use when launching the image builder.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "A unique name for the image builder.",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+                    "type": "string"
+                },
+                "Tags": {
+                    "description": "<p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^(^(?!aws:).[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            },
+                            "value": {
+                                "maxLength": 256,
+                                "minLength": 0,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 50,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "VpcConfig": {
+                    "description": "The VPC configuration for the image builder. You can specify only one subnet.",
+                    "properties": {
+                        "SecurityGroupIds": {
+                            "description": "The identifiers of the security groups for the fleet or image builder.",
+                            "items": {
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "maxItems": 5,
+                            "type": "array"
+                        },
+                        "SubnetIds": {
+                            "description": "The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or two subnets. Image builder instances use one subnet.",
+                            "items": {
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Name",
+                "InstanceType"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

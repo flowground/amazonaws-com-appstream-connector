@@ -1,0 +1,788 @@
+{
+    "title": "Amazon AppStream",
+    "description": "<fullname>Amazon AppStream 2.0</fullname> <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This reference provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed application streaming service. You centrally manage your desktop applications on AppStream 2.0 and securely deliver them to any computer. AppStream 2.0 manages the AWS resources required to host and run your applications, scales automatically, and provides access to your users on demand.</p> <p>To learn more about AppStream 2.0, see the following resources:</p> <ul> <li> <p> <a href=\"http://aws.amazon.com/appstream2\">Amazon AppStream 2.0 product page</a> </p> </li> <li> <p> <a href=\"http://aws.amazon.com/documentation/appstream2\">Amazon AppStream 2.0 documentation</a> </p> </li> </ul>",
+    "docsUrl": "https://aws.amazon.com/appstream2/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/appstream/2016-12-01/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://appstream2.amazonaws.com/",
+                    "http://appstream2.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AssociateFleet": {
+            "main": "./lib/actions/AssociateFleet.js",
+            "title": "Associates the specified fleet with the specified stack.",
+            "description": "Associates the specified fleet with the specified stack.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatchAssociateUserStack": {
+            "main": "./lib/actions/BatchAssociateUserStack.js",
+            "title": "Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.",
+            "description": "Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatchAssociateUserStack.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatchDisassociateUserStack": {
+            "main": "./lib/actions/BatchDisassociateUserStack.js",
+            "title": "Disassociates the specified users from the specified stacks.",
+            "description": "Disassociates the specified users from the specified stacks.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatchDisassociateUserStack.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CopyImage": {
+            "main": "./lib/actions/CopyImage.js",
+            "title": "Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.",
+            "description": "Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CopyImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDirectoryConfig": {
+            "main": "./lib/actions/CreateDirectoryConfig.js",
+            "title": "Creates a Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "description": "Creates a Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDirectoryConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFleet": {
+            "main": "./lib/actions/CreateFleet.js",
+            "title": "Creates a fleet. A fleet consists of streaming instances that run a specified image.",
+            "description": "Creates a fleet. A fleet consists of streaming instances that run a specified image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateImageBuilder": {
+            "main": "./lib/actions/CreateImageBuilder.js",
+            "title": "<p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>",
+            "description": "<p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateImageBuilder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateImageBuilderStreamingURL": {
+            "main": "./lib/actions/CreateImageBuilderStreamingURL.js",
+            "title": "Creates a URL to start an image builder streaming session.",
+            "description": "Creates a URL to start an image builder streaming session.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateImageBuilderStreamingURL.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateStack": {
+            "main": "./lib/actions/CreateStack.js",
+            "title": "Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. ",
+            "description": "Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateStack.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateStreamingURL": {
+            "main": "./lib/actions/CreateStreamingURL.js",
+            "title": "Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. ",
+            "description": "Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateStreamingURL.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateUser": {
+            "main": "./lib/actions/CreateUser.js",
+            "title": "Creates a new user in the user pool.",
+            "description": "Creates a new user in the user pool.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDirectoryConfig": {
+            "main": "./lib/actions/DeleteDirectoryConfig.js",
+            "title": "Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "description": "Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDirectoryConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteFleet": {
+            "main": "./lib/actions/DeleteFleet.js",
+            "title": "Deletes the specified fleet.",
+            "description": "Deletes the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteImage": {
+            "main": "./lib/actions/DeleteImage.js",
+            "title": "Deletes the specified image. You cannot delete an image when it is in use. After you delete an image, you cannot provision new capacity using the image.",
+            "description": "Deletes the specified image. You cannot delete an image when it is in use. After you delete an image, you cannot provision new capacity using the image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteImageBuilder": {
+            "main": "./lib/actions/DeleteImageBuilder.js",
+            "title": "Deletes the specified image builder and releases the capacity.",
+            "description": "Deletes the specified image builder and releases the capacity.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteImageBuilder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteImagePermissions": {
+            "main": "./lib/actions/DeleteImagePermissions.js",
+            "title": "Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.",
+            "description": "Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteImagePermissions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteStack": {
+            "main": "./lib/actions/DeleteStack.js",
+            "title": "Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.",
+            "description": "Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteStack.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteUser": {
+            "main": "./lib/actions/DeleteUser.js",
+            "title": "Deletes a user from the user pool.",
+            "description": "Deletes a user from the user pool.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeDirectoryConfigs": {
+            "main": "./lib/actions/DescribeDirectoryConfigs.js",
+            "title": "<p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the information required to join streaming instances to an Active Directory domain. </p> <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>",
+            "description": "<p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the information required to join streaming instances to an Active Directory domain. </p> <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeDirectoryConfigs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeFleets": {
+            "main": "./lib/actions/DescribeFleets.js",
+            "title": "Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.",
+            "description": "Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeFleets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeImageBuilders": {
+            "main": "./lib/actions/DescribeImageBuilders.js",
+            "title": "Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.",
+            "description": "Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeImageBuilders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeImagePermissions": {
+            "main": "./lib/actions/DescribeImagePermissions.js",
+            "title": "Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. ",
+            "description": "Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeImagePermissions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeImages": {
+            "main": "./lib/actions/DescribeImages.js",
+            "title": "Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.",
+            "description": "Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeImages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeSessions": {
+            "main": "./lib/actions/DescribeSessions.js",
+            "title": "Retrieves a list that describes the active streaming sessions for a specified stack and fleet. If a value for <code>UserId</code> is provided for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not provided, the default is to authenticate users using a streaming URL.",
+            "description": "Retrieves a list that describes the active streaming sessions for a specified stack and fleet. If a value for <code>UserId</code> is provided for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not provided, the default is to authenticate users using a streaming URL.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeSessions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeStacks": {
+            "main": "./lib/actions/DescribeStacks.js",
+            "title": "Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.",
+            "description": "Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeStacks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeUserStackAssociations": {
+            "main": "./lib/actions/DescribeUserStackAssociations.js",
+            "title": "<p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p> <ul> <li> <p>The stack name</p> </li> <li> <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p> </li> </ul>",
+            "description": "<p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p> <ul> <li> <p>The stack name</p> </li> <li> <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p> </li> </ul>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeUserStackAssociations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeUsers": {
+            "main": "./lib/actions/DescribeUsers.js",
+            "title": "Retrieves a list that describes one or more specified users in the user pool.",
+            "description": "Retrieves a list that describes one or more specified users in the user pool.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisableUser": {
+            "main": "./lib/actions/DisableUser.js",
+            "title": "Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. ",
+            "description": "Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisableUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateFleet": {
+            "main": "./lib/actions/DisassociateFleet.js",
+            "title": "Disassociates the specified fleet from the specified stack.",
+            "description": "Disassociates the specified fleet from the specified stack.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "EnableUser": {
+            "main": "./lib/actions/EnableUser.js",
+            "title": "Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.",
+            "description": "Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/EnableUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExpireSession": {
+            "main": "./lib/actions/ExpireSession.js",
+            "title": "Immediately stops the specified streaming session.",
+            "description": "Immediately stops the specified streaming session.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExpireSession.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListAssociatedFleets": {
+            "main": "./lib/actions/ListAssociatedFleets.js",
+            "title": "Retrieves the name of the fleet that is associated with the specified stack.",
+            "description": "Retrieves the name of the fleet that is associated with the specified stack.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListAssociatedFleets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListAssociatedStacks": {
+            "main": "./lib/actions/ListAssociatedStacks.js",
+            "title": "Retrieves the name of the stack with which the specified fleet is associated.",
+            "description": "Retrieves the name of the stack with which the specified fleet is associated.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListAssociatedStacks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTagsForResource": {
+            "main": "./lib/actions/ListTagsForResource.js",
+            "title": "<p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "description": "<p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTagsForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartFleet": {
+            "main": "./lib/actions/StartFleet.js",
+            "title": "Starts the specified fleet.",
+            "description": "Starts the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartImageBuilder": {
+            "main": "./lib/actions/StartImageBuilder.js",
+            "title": "Starts the specified image builder.",
+            "description": "Starts the specified image builder.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartImageBuilder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopFleet": {
+            "main": "./lib/actions/StopFleet.js",
+            "title": "Stops the specified fleet.",
+            "description": "Stops the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopImageBuilder": {
+            "main": "./lib/actions/StopImageBuilder.js",
+            "title": "Stops the specified image builder.",
+            "description": "Stops the specified image builder.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopImageBuilder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TagResource": {
+            "main": "./lib/actions/TagResource.js",
+            "title": "<p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "description": "<p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UntagResource": {
+            "main": "./lib/actions/UntagResource.js",
+            "title": "<p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "description": "<p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UntagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDirectoryConfig": {
+            "main": "./lib/actions/UpdateDirectoryConfig.js",
+            "title": "Updates the specified Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "description": "Updates the specified Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDirectoryConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateFleet": {
+            "main": "./lib/actions/UpdateFleet.js",
+            "title": "<p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code> and <code>ComputeCapacity</code> attributes. If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>",
+            "description": "<p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code> and <code>ComputeCapacity</code> attributes. If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateImagePermissions": {
+            "main": "./lib/actions/UpdateImagePermissions.js",
+            "title": "Adds or updates permissions for the specified private image. ",
+            "description": "Adds or updates permissions for the specified private image. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateImagePermissions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateStack": {
+            "main": "./lib/actions/UpdateStack.js",
+            "title": "Updates the specified fields for the specified stack.",
+            "description": "Updates the specified fields for the specified stack.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateStack.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
